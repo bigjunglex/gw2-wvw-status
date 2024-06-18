@@ -1,20 +1,23 @@
 import "./style.css";
-import { getMatch } from "./imp/api.js"
+import { getMatch, getServersName, getId, getNames } from "./imp/api.js"
 import { autocomplete } from "./imp/searchbar.js";
 
-console.log('loaded')
-
 const inputWorld = document.getElementById("world");
+const formWorld = document.getElementById('world_name');
 const resContainer = document.querySelector('.result-box')
-const matchesUrl = ' https://api.guildwars2.com/v2/wvw/matches?world=2006'
+const matchesUrl = ' https://api.guildwars2.com/v2/wvw/matches?world='
+
+
+formWorld.addEventListener('submit', async (x) => {
+    x.preventDefault();
+    
+    const list = await getServersName();
+    const world = inputWorld.value;
+    const url = matchesUrl + getId(world, list);
+
+    getMatch(url)
+})
+
 
 
 autocomplete(inputWorld, resContainer);
-
-
-inputWorld.addEventListener('submit',async (x) => {
-    x.preventDefault();
-    let u = await getServersName()
-    getMatch(matchesUrl)
-    console.log(u)
-})
