@@ -1,0 +1,19 @@
+{
+  "name": "gw2-wvw-status",
+  "version": "1.0.0",
+  "description": "### API usage training for [The Odin Project](https://www.theodinproject.com/) ### :writing_hand: [Assignment](https://www.theodinproject.com/lessons/node-path-javascript-weather-app)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.0",
+    "webpack": "^5.92.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
