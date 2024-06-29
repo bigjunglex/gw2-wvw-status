@@ -1,5 +1,5 @@
 
-export const getServersName = async () => {
+export const getWorldsList = async () => {
     const url = 'https://api.guildwars2.com/v2/worlds?ids=all' 
     const response = await fetch(url, { mode: 'cors' });
     const data = await response.json();
@@ -10,18 +10,21 @@ export const getServersName = async () => {
 export const getMatch = async (url) => {
     const response = await fetch(url, { mode: 'cors' });
     const data = await response.json();
-    const worlds = data.worlds;
+    // const worlds = data.all_worlds;
     
-    console.log(worlds)
-    
-    return worlds
+    return data
 };
 
-export const getId = (world, list) => {
+export const getId = (world, servers) => {
     if(!world) {
         console.log('not found')
     }else{
-        const index = list.findIndex(i => i.name === world)
-        return index ? list[index].id : 1001
+        const index = servers.findIndex(i => i.name === world)
+        return index ? servers[index].id : 1001
     }
 };
+
+export const getWorld = (id, servers) => {
+    const world = servers.find(server => server.id === id);
+    return world ? world.name : null;
+}

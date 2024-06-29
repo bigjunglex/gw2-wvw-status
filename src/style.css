@@ -1,0 +1,11 @@
+.content div h5 {
+    color: white;
+}
+
+.content {
+    display: flex;
+}
+
+.content div {
+    padding: 10px;
+}

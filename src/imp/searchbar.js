@@ -1,9 +1,9 @@
-import { getServersName } from './api.js'
+import { getWorldsList } from './api.js'
 
 
 export const autocomplete = async (input, container) => {
     const getKeywords = async () => {
-        const data = await getServersName()
+        const data = await getWorldsList()
         const list = [];
         for (let i = 0; i < data.length; i++){
                 list.push(data[i].name)
