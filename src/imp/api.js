@@ -1,8 +1,14 @@
 
+// to avoid double getWorldList requests, store list in variable
+
+let storedWorldsList = null;
+
 export const getWorldsList = async () => {
+    if (storedWorldsList) return storedWorldsList
     const url = 'https://api.guildwars2.com/v2/worlds?ids=all' 
     const response = await fetch(url, { mode: 'cors' });
     const data = await response.json();
+    storedWorldsList = data
 
     return data
 };
